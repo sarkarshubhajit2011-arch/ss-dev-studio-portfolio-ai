@@ -2,22 +2,28 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="SS Dev Studio builds Android apps, websites, AI solutions and custom digital products.">
+        content="SS Dev Studio - Professional Android App Development, Website Development and AI Solutions.">
 
     <meta name="theme-color"
-        content="#080b14">
+        content="#07111f">
 
     <title>
-        SS Dev Studio | App, Web & AI Development
+        SS Dev Studio | Apps, Websites & AI Solutions
     </title>
 
+
     <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
 
         * {
             margin: 0;
@@ -25,9 +31,11 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family:
@@ -35,42 +43,85 @@
                 Helvetica,
                 sans-serif;
 
-            background: #080b14;
-            color: white;
+            background: #07111f;
+
+            color: #ffffff;
+
             line-height: 1.6;
+
+            overflow-x: hidden;
         }
+
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* =========================================
+           VARIABLES
+        ========================================= */
+
+        :root {
+
+            --background: #07111f;
+
+            --background-2: #0b1728;
+
+            --card: #101e32;
+
+            --card-light: #13253d;
+
+            --text: #ffffff;
+
+            --text-muted: #aebbd0;
+
+            --blue: #4d8dff;
+
+            --blue-light: #8bb4ff;
+
+            --border:
+                rgba(255, 255, 255, 0.10);
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
 
         header {
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
+            width: 100%;
+
             background:
-                rgba(8, 11, 20, 0.95);
+                rgba(7, 17, 31, 0.96);
+
+            border-bottom:
+                1px solid var(--border);
 
             backdrop-filter:
                 blur(15px);
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.08);
         }
 
-        nav {
-            max-width: 1200px;
+
+        .navbar {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            min-height: 72px;
 
             margin: auto;
-
-            min-height: 75px;
 
             padding:
                 0 25px;
@@ -83,129 +134,163 @@
                 space-between;
 
             gap: 20px;
+
         }
 
-        .logo {
+
+        .brand {
+
             display: flex;
 
             align-items: center;
 
             gap: 10px;
 
-            color: white;
-
             font-size: 21px;
 
             font-weight: 800;
+
+            white-space: nowrap;
+
         }
 
-        .site-logo {
-            width: 38px;
 
-            height: 38px;
+        .brand-icon {
 
-            object-fit: contain;
+            width: 42px;
 
-            border-radius: 8px;
+            height: 42px;
+
+            border-radius: 11px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    #774dff
+                );
+
+            font-weight: 900;
+
         }
+
 
         .nav-links {
+
             display: flex;
+
+            align-items: center;
 
             list-style: none;
 
             gap: 22px;
 
-            align-items: center;
         }
 
+
         .nav-links a {
-            color: #c6cada;
+
+            color: var(--text-muted);
 
             font-size: 14px;
 
-            transition: 0.3s;
+            transition: 0.25s;
+
         }
+
 
         .nav-links a:hover {
+
             color: white;
+
         }
 
 
-        /* =========================
+        /* =========================================
            BUTTONS
-        ========================= */
+        ========================================= */
 
-        .btn {
-            display: inline-block;
+        .button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
 
             padding:
-                13px 23px;
+                13px 22px;
 
             border-radius: 10px;
 
             font-weight: 700;
 
-            transition: 0.3s;
+            border: 1px solid transparent;
 
-            cursor: pointer;
+            transition:
+                transform 0.2s,
+                background 0.2s;
+
         }
 
-        .btn--primary {
 
-            background: white;
-
-            color: #080b14;
-        }
-
-        .btn--primary:hover {
+        .button:hover {
 
             transform:
                 translateY(-2px);
 
-            box-shadow:
-                0 10px 30px
-                rgba(255,255,255,0.15);
         }
 
-        .btn--secondary {
 
-            border:
-                1px solid
-                rgba(255,255,255,0.25);
+        .button-primary {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4d8dff,
+                    #6b63ff
+                );
 
             color: white;
 
-            background:
-                rgba(255,255,255,0.03);
         }
 
-        .btn--secondary:hover {
+
+        .button-secondary {
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
 
             background:
-                rgba(255,255,255,0.1);
+                rgba(255,255,255,0.04);
+
+            color: white;
+
         }
 
-        .nav-cta {
 
-            background: white;
-
-            color: #080b14;
+        .nav-button {
 
             padding:
-                10px 17px;
-
-            border-radius: 9px;
+                10px 16px;
 
             font-size: 14px;
 
-            font-weight: 700;
+            white-space: nowrap;
+
         }
 
 
-        /* =========================
+        /* =========================================
            HERO
-        ========================= */
+        ========================================= */
 
         .hero {
 
@@ -227,75 +312,59 @@
             overflow: hidden;
 
             background:
+
                 radial-gradient(
-                    circle at top left,
-                    #172c55,
-                    transparent 35%
+                    circle at 15% 20%,
+                    rgba(77,141,255,0.22),
+                    transparent 30%
                 ),
 
                 radial-gradient(
-                    circle at bottom right,
-                    #24154a,
-                    transparent 35%
+                    circle at 85% 80%,
+                    rgba(107,99,255,0.18),
+                    transparent 30%
                 ),
 
-                #080b14;
+                #07111f;
+
         }
 
-        .hero::before {
 
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-
-            height: 500px;
-
-            background:
-                rgba(72,120,255,0.08);
-
-            filter:
-                blur(100px);
-
-            border-radius: 50%;
-
-            top: -200px;
-
-            right: -150px;
-        }
-
-        .hero__content {
-
-            max-width: 950px;
+        .hero-content {
 
             position: relative;
 
             z-index: 2;
+
+            max-width: 950px;
+
         }
 
-        .hero__eyebrow {
+
+        .hero-badge {
 
             display: inline-block;
 
-            color: #9db8ff;
-
-            border:
-                1px solid
-                rgba(120,160,255,0.25);
-
-            background:
-                rgba(100,140,255,0.08);
+            margin-bottom: 22px;
 
             padding:
                 8px 16px;
 
             border-radius: 30px;
 
+            color: var(--blue-light);
+
+            background:
+                rgba(77,141,255,0.10);
+
+            border:
+                1px solid
+                rgba(77,141,255,0.25);
+
             font-size: 14px;
 
-            margin-bottom: 25px;
         }
+
 
         .hero h1 {
 
@@ -308,205 +377,126 @@
 
             line-height: 1.05;
 
+            letter-spacing: -2px;
+
             margin-bottom: 25px;
 
-            letter-spacing: -2px;
         }
 
-        .hero p {
 
-            color: #b7bfd1;
+        .hero h1 span {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #78aaff,
+                    #b29cff
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+
+        }
+
+
+        .hero p {
 
             max-width: 700px;
 
             margin:
                 0 auto 35px;
 
+            color: var(--text-muted);
+
             font-size: 18px;
+
         }
 
-        .hero__buttons {
+
+        .hero-buttons {
 
             display: flex;
 
             justify-content: center;
 
+            align-items: center;
+
             gap: 15px;
 
             flex-wrap: wrap;
+
         }
 
 
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
+        /* =========================================
+           SECTIONS
+        ========================================= */
 
         section {
 
             padding:
                 90px 20px;
+
         }
 
-        .container {
+
+        .section-container {
 
             max-width: 1150px;
 
             margin: auto;
+
         }
 
-        .section-header {
+
+        .section-heading {
 
             text-align: center;
 
-            margin-bottom: 45px;
+            max-width: 750px;
+
+            margin:
+                0 auto 50px;
+
         }
 
-        .section-header h2 {
+
+        .section-heading h2 {
 
             font-size:
                 clamp(
-                    30px,
+                    32px,
                     5vw,
-                    45px
+                    48px
                 );
-
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-
-            color: #aeb6c8;
-
-            max-width: 650px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           TECHNOLOGIES
-        ========================= */
-
-        .tech {
-
-            text-align: center;
-
-            background: #0b0f1c;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.05);
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.05);
-        }
-
-        .tech h2 {
-
-            margin-bottom: 30px;
-        }
-
-        .tech-grid {
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-
-            gap: 12px;
-        }
-
-        .tech-grid span {
-
-            padding:
-                10px 18px;
-
-            border-radius: 30px;
-
-            background:
-                rgba(255,255,255,0.05);
-
-            border:
-                1px solid
-                rgba(255,255,255,0.08);
-
-            color: #d5daea;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-grid {
-
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                1.3fr 0.7fr;
-
-            gap: 30px;
-        }
-
-        .about-text,
-        .about-card {
-
-            padding: 35px;
-
-            border-radius: 18px;
-
-            border:
-                1px solid
-                rgba(255,255,255,0.08);
-
-            background:
-                rgba(255,255,255,0.03);
-        }
-
-        .about-text p {
-
-            color: #b5bdcf;
-
-            margin-bottom: 18px;
-        }
-
-        .about-card h3 {
 
             margin-bottom: 12px;
 
-            font-size: 25px;
-        }
-
-        .about-card p {
-
-            color: #b5bdcf;
         }
 
 
-        /* =========================
-           EXPERTISE
-        ========================= */
+        .section-heading p {
 
-        .expertise {
+            color: var(--text-muted);
 
-            background: #0a0e1a;
         }
 
-        .expertise-grid {
 
-            max-width: 1100px;
+        /* =========================================
+           SERVICES
+        ========================================= */
 
-            margin: auto;
+        .services-section {
+
+            background:
+                #0a1525;
+
+        }
+
+
+        .services-grid {
 
             display: grid;
 
@@ -514,43 +504,91 @@
                 repeat(4, 1fr);
 
             gap: 20px;
+
         }
 
-        .expertise-card {
+
+        .service-card {
+
+            background:
+                var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
 
             padding: 28px;
 
-            border-radius: 16px;
+            transition:
+                transform 0.25s,
+                border-color 0.25s;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.08);
-
-            background: #101626;
         }
 
-        .expertise-card h3 {
+
+        .service-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(77,141,255,0.5);
+
+        }
+
+
+        .service-number {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            background:
+                rgba(77,141,255,0.14);
+
+            color:
+                var(--blue-light);
+
+            font-weight: bold;
+
+        }
+
+
+        .service-card h3 {
+
+            font-size: 20px;
 
             margin-bottom: 12px;
+
         }
 
-        .expertise-card p {
 
-            color: #adb6c8;
+        .service-card p {
+
+            color:
+                var(--text-muted);
 
             font-size: 14px;
+
         }
 
 
-        /* =========================
+        /* =========================================
            PROJECTS
-        ========================= */
+        ========================================= */
 
-        .project-grid {
-
-            max-width: 1100px;
-
-            margin: auto;
+        .projects-grid {
 
             display: grid;
 
@@ -558,67 +596,98 @@
                 repeat(3, 1fr);
 
             gap: 22px;
+
         }
+
 
         .project-card {
 
+            min-height: 250px;
+
             padding: 30px;
 
-            border-radius: 18px;
-
-            border:
-                1px solid
-                rgba(255,255,255,0.1);
+            border-radius: 20px;
 
             background:
                 linear-gradient(
                     145deg,
-                    #111827,
-                    #0b0f1b
+                    #13243a,
+                    #0b1626
                 );
+
+            border:
+                1px solid var(--border);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
         }
+
+
+        .project-tag {
+
+            display: inline-block;
+
+            width: fit-content;
+
+            padding:
+                6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            color:
+                var(--blue-light);
+
+            background:
+                rgba(77,141,255,0.12);
+
+            margin-bottom: 18px;
+
+        }
+
 
         .project-card h3 {
 
-            font-size: 22px;
+            font-size: 24px;
 
             margin-bottom: 12px;
+
         }
+
 
         .project-card p {
 
-            color: #aeb6c7;
+            color:
+                var(--text-muted);
 
-            margin-bottom: 22px;
-        }
-
-        .project-link {
-
-            color: #9ebaff;
-
-            font-weight: bold;
         }
 
 
-        /* =========================
+        /* =========================================
            PRICING
-        ========================= */
+        ========================================= */
 
         .pricing-section {
 
             background:
-                linear-gradient(
-                    180deg,
-                    #0a0e1a,
-                    #080b14
-                );
+                #0a1525;
+
         }
 
+
+        .pricing-title {
+
+            margin-top: 90px;
+
+        }
+
+
         .pricing-grid {
-
-            max-width: 1100px;
-
-            margin: auto;
 
             display: grid;
 
@@ -626,137 +695,258 @@
                 repeat(3, 1fr);
 
             gap: 22px;
+
         }
 
-        .price-card {
 
-            padding: 32px 28px;
+        .app-pricing-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .pricing-card {
+
+            padding: 30px;
 
             border-radius: 20px;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.1);
-
             background:
-                rgba(255,255,255,0.035);
+                var(--card);
+
+            border:
+                1px solid var(--border);
 
             position: relative;
+
         }
 
-        .price-card.featured {
 
-            border-color:
-                rgba(130,170,255,0.6);
+        .pricing-card.popular {
+
+            border:
+                1px solid
+                rgba(77,141,255,0.7);
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(65,100,180,0.2),
-                    rgba(255,255,255,0.04)
+                    rgba(77,141,255,0.18),
+                    #101e32
                 );
 
-            transform:
-                translateY(-8px);
         }
 
-        .price-card h3 {
 
-            font-size: 23px;
+        .pricing-label {
+
+            color:
+                var(--blue-light);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+
         }
 
-        .amount {
 
-            font-size: 45px;
+        .pricing-card h3 {
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .price-row {
+
+            padding:
+                15px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+
+        }
+
+
+        .price-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .price-type {
+
+            display: block;
+
+            color:
+                var(--text-muted);
+
+            font-size: 13px;
+
+        }
+
+
+        .price-value {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: white;
+
+        }
+
+
+        .app-price {
+
+            font-size: 31px;
 
             font-weight: 800;
 
             margin:
-                15px 0 8px;
+                15px 0;
+
+            color:
+                var(--blue-light);
+
         }
 
-        .price-card p {
 
-            color: #aeb6c8;
-        }
+        .pricing-card ul {
 
-        .price-card ul {
+            list-style: none;
 
             margin:
-                25px 0;
+                22px 0;
 
-            padding-left: 20px;
-
-            color: #c2c9d8;
         }
 
-        .price-card li {
 
-            margin: 10px 0;
+        .pricing-card li {
+
+            color:
+                var(--text-muted);
+
+            padding:
+                8px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            font-size: 14px;
+
         }
+
 
         .pricing-note {
 
-            max-width: 800px;
+            max-width: 900px;
 
             margin:
-                35px auto 0;
+                40px auto 0;
+
+            padding: 20px;
 
             text-align: center;
 
-            color: #9ea8bc;
+            color:
+                var(--text-muted);
 
-            font-size: 14px;
+            background:
+                rgba(255,255,255,0.03);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
         }
 
 
-        /* =========================
-           REQUEST PROJECT
-        ========================= */
+        /* =========================================
+           REQUEST
+        ========================================= */
 
         .request-section {
 
             background:
+
                 radial-gradient(
                     circle at center,
-                    #162443,
-                    #080b14 65%
-                );
+                    rgba(77,141,255,0.20),
+                    transparent 45%
+                ),
+
+                #07111f;
+
         }
+
 
         .request-box {
 
-            max-width: 850px;
+            max-width: 900px;
 
             margin: auto;
 
-            padding: 45px 25px;
-
             text-align: center;
 
-            border-radius: 24px;
+            padding:
+                55px 30px;
+
+            border-radius: 25px;
 
             background:
                 rgba(255,255,255,0.04);
 
             border:
-                1px solid
-                rgba(255,255,255,0.1);
+                1px solid var(--border);
+
         }
+
 
         .request-box h2 {
 
-            font-size: 38px;
+            font-size:
+                clamp(
+                    32px,
+                    5vw,
+                    48px
+                );
 
             margin-bottom: 15px;
+
         }
+
 
         .request-box p {
 
-            color: #b2bbcd;
+            color:
+                var(--text-muted);
 
-            margin-bottom: 28px;
+            max-width: 650px;
+
+            margin:
+                0 auto 30px;
+
         }
+
 
         .request-buttons {
 
@@ -767,12 +957,13 @@
             gap: 15px;
 
             flex-wrap: wrap;
+
         }
 
 
-        /* =========================
+        /* =========================================
            CONTACT
-        ========================= */
+        ========================================= */
 
         .contact-grid {
 
@@ -786,40 +977,48 @@
                 repeat(2, 1fr);
 
             gap: 20px;
+
         }
+
 
         .contact-card {
 
-            padding: 28px;
+            padding: 30px;
 
             text-align: center;
 
             border-radius: 18px;
 
             background:
-                rgba(255,255,255,0.04);
+                var(--card);
 
             border:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid var(--border);
+
         }
+
 
         .contact-card h3 {
 
             margin-bottom: 10px;
+
         }
+
 
         .contact-card a {
 
-            color: #a9c1ff;
+            color:
+                var(--blue-light);
 
-            word-break: break-word;
+            word-break:
+                break-word;
+
         }
 
 
-        /* =========================
+        /* =========================================
            FOOTER
-        ========================= */
+        ========================================= */
 
         footer {
 
@@ -827,15 +1026,17 @@
                 35px 20px;
 
             border-top:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid var(--border);
 
-            background: #060912;
+            background:
+                #050c16;
+
         }
 
-        .footer-inner {
 
-            max-width: 1100px;
+        .footer-content {
+
+            max-width: 1150px;
 
             margin: auto;
 
@@ -850,110 +1051,170 @@
 
             flex-wrap: wrap;
 
-            color: #8e98ad;
+            color:
+                var(--text-muted);
+
         }
 
-        .footer-inner h3 {
+
+        .footer-brand {
 
             color: white;
 
-            margin-bottom: 5px;
+            font-weight: 800;
+
+            font-size: 18px;
+
         }
 
 
-        /* =========================
+        /* =========================================
            MOBILE
-        ========================= */
+        ========================================= */
 
-        @media (max-width: 900px) {
+        @media
+        (max-width: 1000px) {
 
-            .nav-links {
-                display: none;
-            }
+            .services-grid {
 
-            .expertise-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
+
             }
 
-            .project-grid {
+
+            .app-pricing-grid {
+
                 grid-template-columns:
-                    1fr;
-            }
+                    repeat(2, 1fr);
 
-            .pricing-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .price-card.featured {
-                transform: none;
-            }
-
-            .about-grid {
-                grid-template-columns:
-                    1fr;
             }
 
         }
 
 
-        @media (max-width: 600px) {
+        @media
+        (max-width: 850px) {
 
-            nav {
-                padding:
-                    0 15px;
+            .nav-links {
+
+                display: none;
+
             }
 
-            .nav-cta {
+
+            .projects-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pricing-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media
+        (max-width: 600px) {
+
+            .navbar {
+
+                padding:
+                    0 15px;
+
+            }
+
+
+            .brand {
+
+                font-size: 17px;
+
+            }
+
+
+            .brand-icon {
+
+                width: 36px;
+
+                height: 36px;
+
+            }
+
+
+            .nav-button {
 
                 font-size: 12px;
 
                 padding:
-                    9px 12px;
+                    9px 11px;
+
             }
 
-            .logo {
-
-                font-size: 17px;
-            }
 
             .hero {
 
                 min-height: 580px;
 
                 padding:
-                    80px 18px;
+                    90px 18px;
+
             }
+
+
+            .hero h1 {
+
+                letter-spacing:
+                    -1px;
+
+            }
+
 
             .hero p {
 
                 font-size: 16px;
+
             }
 
-            .expertise-grid {
+
+            .services-grid {
 
                 grid-template-columns:
                     1fr;
+
             }
+
+
+            .app-pricing-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
 
             .contact-grid {
 
                 grid-template-columns:
                     1fr;
+
             }
 
-            .request-box h2 {
 
-                font-size: 30px;
-            }
-
-            .footer-inner {
-
-                text-align: center;
+            .footer-content {
 
                 justify-content:
                     center;
+
+                text-align:
+                    center;
+
             }
 
         }
@@ -966,18 +1227,19 @@
 <body>
 
 
-    <!-- NAVIGATION -->
+    <!-- HEADER -->
 
     <header>
 
-        <nav>
+        <nav class="navbar">
+
 
             <a href="#home"
-                class="logo">
+                class="brand">
 
-                <img src="logo.png"
-                    class="site-logo"
-                    alt="SS Dev Studio Logo">
+                <div class="brand-icon">
+                    SS
+                </div>
 
                 SS Dev Studio
 
@@ -993,14 +1255,8 @@
                 </li>
 
                 <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#expertise">
-                        Expertise
+                    <a href="#services">
+                        Services
                     </a>
                 </li>
 
@@ -1026,11 +1282,12 @@
 
 
             <a href="#request"
-                class="nav-cta">
+                class="button button-primary nav-button">
 
                 Request a Project
 
             </a>
+
 
         </nav>
 
@@ -1046,143 +1303,21 @@
         <section class="hero"
             id="home">
 
-            <div class="hero__content">
+            <div class="hero-content">
 
-                <div class="hero__eyebrow">
 
-                    Building Intelligent Digital Solutions
+                <div class="hero-badge">
+
+                    Professional Digital Development Solutions
 
                 </div>
 
 
                 <h1>
 
-                    Apps, Websites
+                    Turning Ideas Into
+
                     <br>
-                    & AI Solutions
 
-                </h1>
-
-
-                <p>
-
-                    SS Dev Studio helps turn your ideas
-                    into modern, powerful and useful
-                    digital products.
-
-                </p>
-
-
-                <div class="hero__buttons">
-
-                    <a href="#request"
-                        class="btn btn--primary">
-
-                        Request a Project
-
-                    </a>
-
-
-                    <a href="#projects"
-                        class="btn btn--secondary">
-
-                        View Projects
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- TECHNOLOGIES -->
-
-        <section class="tech">
-
-            <h2>
-                Technologies
-            </h2>
-
-
-            <div class="tech-grid">
-
-                <span>Android</span>
-
-                <span>Java</span>
-
-                <span>Kotlin</span>
-
-                <span>Python</span>
-
-                <span>HTML</span>
-
-                <span>CSS</span>
-
-                <span>JavaScript</span>
-
-                <span>Firebase</span>
-
-                <span>GitHub</span>
-
-                <span>AI</span>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ABOUT -->
-
-        <section id="about">
-
-            <div class="section-header">
-
-                <h2>
-                    About SS Dev Studio
-                </h2>
-
-                <p>
-                    Modern digital products built around
-                    your requirements.
-                </p>
-
-            </div>
-
-
-            <div class="about-grid">
-
-                <div class="about-text">
-
-                    <p>
-
-                        SS Dev Studio creates Android apps,
-                        websites, AI solutions and digital
-                        tools for different types of projects.
-
-                    </p>
-
-
-                    <p>
-
-                        Every project is planned according
-                        to the client's requirements,
-                        required features and goals.
-
-                    </p>
-
-                </div>
-
-
-                <div class="about-card">
-
-                    <h3>
-                        Our Focus
-                    </h3>
-
-                    <p>
-
-                        Clea
+                    <span>
+                        Powerful Digital Pr
