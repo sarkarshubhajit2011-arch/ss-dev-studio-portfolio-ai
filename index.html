@@ -3,33 +3,31 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Search Console Verification -->
   <meta
     name="google-site-verification"
     content="8c1D8-8fuIFV3K1DN1-5fuPv9OE0zTYTPZ-xnFgw0fw"
   >
 
-  <title>SS DEV STUDIO — Apps, Websites & Digital Products</title>
-
   <meta
     name="description"
-    content="SS DEV STUDIO creates polished Android apps, high-converting websites and reliable digital experiences."
+    content="SS DEV STUDIO creates polished Android apps, professional websites and reliable digital experiences."
   >
 
+  <meta name="theme-color" content="#080811">
+
+  <title>SS DEV STUDIO — Apps, Websites & Digital Products</title>
+
   <style>
-    /* =========================================
-       GLOBAL RESET
-    ========================================= */
+    /* =====================================================
+       RESET
+    ===================================================== */
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -39,9 +37,7 @@
 
     body {
       min-height: 100vh;
-      width: 100%;
       overflow-x: hidden;
-      overflow-y: auto;
       background: #080811;
       color: #f5f5f7;
       font-family:
@@ -61,8 +57,8 @@
 
     button,
     input,
-    textarea,
-    select {
+    select,
+    textarea {
       font: inherit;
     }
 
@@ -70,15 +66,22 @@
       cursor: pointer;
     }
 
-    /* =========================================
+    ::selection {
+      background: #b743e8;
+      color: #ffffff;
+    }
+
+
+    /* =====================================================
        BACKGROUND
-    ========================================= */
+    ===================================================== */
 
     .background-grid {
       position: fixed;
       inset: 0;
+      z-index: -3;
       pointer-events: none;
-      z-index: -2;
+
       background:
         linear-gradient(
           rgba(255, 255, 255, 0.025) 1px,
@@ -89,162 +92,43 @@
           rgba(255, 255, 255, 0.025) 1px,
           transparent 1px
         );
+
       background-size: 40px 40px;
     }
 
     .background-glow {
       position: fixed;
+      z-index: -2;
+      pointer-events: none;
+
       width: 600px;
       height: 600px;
-      border-radius: 50%;
-      background: rgba(214, 49, 193, 0.12);
-      filter: blur(120px);
+
       top: -250px;
       right: -250px;
-      z-index: -1;
-      pointer-events: none;
+
+      border-radius: 50%;
+
+      background: rgba(214, 49, 193, 0.12);
+
+      filter: blur(120px);
     }
 
-    /* =========================================
-       LAYOUT
-    ========================================= */
+
+    /* =====================================================
+       COMMON
+    ===================================================== */
 
     .container {
       width: min(1180px, calc(100% - 40px));
-      margin: auto;
+      margin: 0 auto;
     }
 
     section {
       width: 100%;
       padding: 100px 0;
       position: relative;
-    }
-
-    /* =========================================
-       NAVBAR
-    ========================================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8, 8, 17, 0.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .navbar {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      line-height: 1;
-    }
-
-    .logo span {
-      color: #55d8ff;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      color: #aeb0bd;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .nav-button,
-    .primary-button {
-      border: none;
-      color: white;
-      font-weight: 800;
-      border-radius: 16px;
-      padding: 16px 24px;
-      background:
-        linear-gradient(
-          135deg,
-          #ef2ca9,
-          #a23be8,
-          #5b5cff
-        );
-      box-shadow:
-        0 10px 35px rgba(181, 57, 224, 0.28);
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .nav-button:hover,
-    .primary-button:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 15px 45px rgba(181, 57, 224, 0.4);
-    }
-
-    .mobile-menu-button {
-      display: none;
-      background: transparent;
-      color: white;
-      border: none;
-      font-size: 1.6rem;
-    }
-
-    /* =========================================
-       HERO
-    ========================================= */
-
-    .hero {
-      min-height: 720px;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 70px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #72e8bd;
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #5ce3a4;
-      box-shadow: 0 0 18px #5ce3a4;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      margin-bottom: 28px;
+      scroll-margin-top: 90px;
     }
 
     .gradient-text {
@@ -255,74 +139,324 @@
           #d4a8ff,
           #57d8ff
         );
+
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(8, 8, 17, 0.9);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .navbar {
+      min-height: 82px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #55d8ff;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+
+      color: #aeb0bd;
+
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-button,
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border: none;
+
+      color: #ffffff;
+
+      font-weight: 800;
+
+      border-radius: 16px;
+
+      padding: 15px 23px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ef2ca9,
+          #a23be8,
+          #5b5cff
+        );
+
+      box-shadow:
+        0 10px 35px rgba(181, 57, 224, 0.28);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .nav-button:hover,
+    .primary-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 15px 45px rgba(181, 57, 224, 0.4);
+    }
+
+    .mobile-menu-button {
+      display: none;
+
+      border: none;
+      background: transparent;
+
+      color: #ffffff;
+
+      font-size: 1.7rem;
+
+      padding: 5px;
+    }
+
+    .mobile-menu {
+      display: none;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+
+      padding: 10px 0 18px;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+
+      padding: 12px 0;
+
+      color: #c8c9d1;
+
+      font-weight: 700;
+    }
+
+    .mobile-menu a:hover {
+      color: #ffffff;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 720px;
+
+      display: flex;
+      align-items: center;
+
+      padding-top: 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      align-items: center;
+
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: #72e8bd;
+
+      font-size: 0.8rem;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: #5ce3a4;
+
+      box-shadow:
+        0 0 18px #5ce3a4;
+    }
+
+    h1 {
+      font-size:
+        clamp(3rem, 7vw, 6.8rem);
+
+      line-height: 0.95;
+
+      letter-spacing: -0.06em;
+
+      margin-bottom: 28px;
+    }
+
     .hero-text {
       max-width: 680px;
+
       font-size: 1.18rem;
+
       color: #afb0bd;
+
       margin-bottom: 35px;
     }
 
     .hero-buttons {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 15px;
     }
 
     .secondary-button {
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: white;
-      background: rgba(255, 255, 255, 0.035);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.14);
+
+      color: #ffffff;
+
+      background:
+        rgba(255, 255, 255, 0.035);
+
       padding: 15px 24px;
+
       border-radius: 16px;
+
       font-weight: 800;
+
       transition: 0.25s;
     }
 
     .secondary-button:hover {
       border-color: #b744e9;
+
       transform: translateY(-2px);
+
+      background:
+        rgba(255, 255, 255, 0.06);
     }
+
+
+    /* =====================================================
+       HERO PREVIEW
+    ===================================================== */
 
     .hero-card {
       border-radius: 30px;
+
       padding: 30px;
+
       background:
         linear-gradient(
           145deg,
           rgba(255, 255, 255, 0.09),
           rgba(255, 255, 255, 0.025)
         );
-      border: 1px solid rgba(105, 215, 255, 0.25);
+
+      border:
+        1px solid rgba(105, 215, 255, 0.25);
+
       box-shadow:
         0 30px 90px rgba(0, 0, 0, 0.4);
     }
 
     .window {
       border-radius: 20px;
+
       overflow: hidden;
+
       background: #0d0d19;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
     .window-header {
       padding: 15px;
+
       display: flex;
+
       gap: 7px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
     }
 
     .dot {
       width: 10px;
       height: 10px;
+
       border-radius: 50%;
+
       background: #d73d97;
     }
 
@@ -339,40 +473,73 @@
     }
 
     .mini-title {
-      font-size: 0.8rem;
       color: #7d7f91;
+
+      font-size: 0.8rem;
+
       text-transform: uppercase;
+
       letter-spacing: 2px;
     }
 
     .window-content h3 {
       margin-top: 15px;
+
       font-size: 2rem;
+
       line-height: 1.15;
     }
 
     .chart {
-      height: 160px;
+      height: 170px;
+
       margin-top: 30px;
+
       border-radius: 18px;
+
       background:
         linear-gradient(
           135deg,
           rgba(236, 45, 171, 0.22),
           rgba(78, 210, 255, 0.12)
         );
-      border: 1px solid rgba(255, 255, 255, 0.07);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.07);
+
       position: relative;
+
       overflow: hidden;
     }
 
-    .chart::after {
+    .chart::before {
       content: "";
+
       position: absolute;
-      left: 8%;
-      right: 8%;
-      bottom: 35%;
-      height: 3px;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        );
+
+      background-size: 100% 34px;
+    }
+
+    .chart-line {
+      position: absolute;
+
+      left: 7%;
+      right: 7%;
+
+      bottom: 30%;
+
+      height: 4px;
+
+      border-radius: 100px;
+
       background:
         linear-gradient(
           90deg,
@@ -380,69 +547,102 @@
           #a23be8,
           #55d8ff
         );
-      transform: skewY(-8deg);
-      border-radius: 100%;
+
+      transform:
+        rotate(-7deg);
     }
 
-    /* =========================================
-       SECTION TITLES
-    ========================================= */
+
+    /* =====================================================
+       SECTION HEADINGS
+    ===================================================== */
 
     .section-tag {
       color: #ef53bb;
+
       font-weight: 900;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
+
       font-size: 0.82rem;
+
       margin-bottom: 18px;
     }
 
     .section-title {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size:
+        clamp(2.5rem, 5vw, 4.5rem);
+
       line-height: 1;
+
       letter-spacing: -0.05em;
+
       margin-bottom: 22px;
     }
 
     .section-description {
       max-width: 720px;
+
       color: #afb0bd;
+
       font-size: 1.08rem;
     }
 
-    /* =========================================
+
+    /* =====================================================
        SERVICES
-    ========================================= */
+    ===================================================== */
 
     .service-grid {
       margin-top: 55px;
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 20px;
     }
 
     .service-card {
       padding: 32px;
+
       border-radius: 24px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+
+      background:
+        rgba(255, 255, 255, 0.035);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.09);
+
       transition: 0.3s;
     }
 
     .service-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(210, 64, 208, 0.5);
-      background: rgba(255, 255, 255, 0.055);
+
+      border-color:
+        rgba(210, 64, 208, 0.5);
+
+      background:
+        rgba(255, 255, 255, 0.055);
     }
 
     .service-icon {
       width: 55px;
       height: 55px;
+
       display: grid;
       place-items: center;
+
       border-radius: 16px;
+
       margin-bottom: 25px;
+
       font-size: 1.5rem;
+
       background:
         linear-gradient(
           135deg,
@@ -453,6 +653,7 @@
 
     .service-card h3 {
       font-size: 1.35rem;
+
       margin-bottom: 10px;
     }
 
@@ -460,43 +661,70 @@
       color: #aeb0bd;
     }
 
-    /* =========================================
+
+    /* =====================================================
        WEBSITE PRICING
-    ========================================= */
+    ===================================================== */
 
     .pricing-grid {
       margin-top: 55px;
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 22px;
+
       align-items: stretch;
     }
 
     .pricing-card {
       padding: 36px;
+
       border-radius: 30px;
+
       background: #12121d;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.12);
+
       display: flex;
+
       flex-direction: column;
+
       min-height: 100%;
+
+      transition: 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
     }
 
     .pricing-card.featured {
       border-color: #cf42e6;
+
       box-shadow:
         0 0 60px rgba(204, 55, 219, 0.15);
+
       position: relative;
     }
 
     .popular {
       position: absolute;
+
       top: 18px;
       right: 18px;
+
       padding: 7px 12px;
+
       border-radius: 100px;
+
       font-size: 0.72rem;
+
       font-weight: 900;
+
       background:
         linear-gradient(
           90deg,
@@ -507,76 +735,110 @@
 
     .pricing-card h3 {
       font-size: 1.6rem;
+
       line-height: 1.2;
+
       margin-bottom: 13px;
+
+      padding-right: 80px;
     }
 
     .pricing-card > p {
       color: #aeb0bd;
+
       min-height: 50px;
     }
 
     .price {
       margin: 35px 0 30px;
+
       font-size: 3rem;
+
       font-weight: 900;
+
       letter-spacing: -0.06em;
     }
 
     .price small {
       font-size: 1rem;
+
       color: #aeb0bd;
+
       letter-spacing: 0;
     }
 
     .annual-price {
       margin-top: -12px;
+
       margin-bottom: 28px;
+
       font-size: 1.55rem;
+
       font-weight: 800;
     }
 
     .annual-price span {
       color: #aeb0bd;
+
       font-size: 0.95rem;
+
+      font-weight: 600;
     }
 
     .features {
       list-style: none;
+
       margin-bottom: 30px;
+
       flex-grow: 1;
     }
 
     .features li {
       padding: 14px 0;
+
       color: #c7c8d0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
     .features li::before {
       content: "✓";
+
       color: #65e5ad;
+
       font-weight: 900;
+
       margin-right: 12px;
     }
 
     .plan-button {
       display: block;
+
       text-align: center;
+
       padding: 16px;
+
       border-radius: 16px;
+
       font-weight: 900;
-      border: 1px solid rgba(255, 255, 255, 0.13);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.13);
+
       background: transparent;
+
       transition: 0.25s;
     }
 
     .plan-button:hover {
-      background: rgba(255, 255, 255, 0.07);
+      background:
+        rgba(255, 255, 255, 0.07);
     }
 
     .featured .plan-button {
       border: none;
+
       background:
         linear-gradient(
           135deg,
@@ -586,9 +848,10 @@
         );
     }
 
-    /* =========================================
+
+    /* =====================================================
        APP PRICING
-    ========================================= */
+    ===================================================== */
 
     .app-pricing-intro {
       max-width: 760px;
@@ -596,97 +859,151 @@
 
     .app-grid {
       margin-top: 55px;
+
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 22px;
     }
 
     .app-card {
       padding: 38px;
+
       border-radius: 28px;
+
       background:
         linear-gradient(
           145deg,
           #13131f,
           #0d0d16
         );
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
       transition: 0.3s;
     }
 
     .app-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(88, 215, 255, 0.45);
+
+      border-color:
+        rgba(88, 215, 255, 0.45);
     }
 
     .app-number {
       color: #5bdcff;
+
       font-weight: 900;
+
       font-size: 0.85rem;
+
       letter-spacing: 2px;
+
       margin-bottom: 20px;
     }
 
     .app-card h3 {
       font-size: 2rem;
+
       margin-bottom: 10px;
     }
 
     .app-card p {
       color: #aeb0bd;
+
       margin-bottom: 25px;
     }
 
     .app-price {
       font-size: 2.7rem;
+
       font-weight: 900;
+
       margin-bottom: 25px;
+
       letter-spacing: -0.05em;
     }
 
     .maintenance-included {
       display: inline-block;
+
       padding: 9px 14px;
+
       border-radius: 100px;
+
       color: #6ce5b0;
-      background: rgba(71, 219, 147, 0.08);
-      border: 1px solid rgba(92, 227, 164, 0.18);
+
+      background:
+        rgba(71, 219, 147, 0.08);
+
+      border:
+        1px solid rgba(92, 227, 164, 0.18);
+
       font-size: 0.85rem;
+
       font-weight: 800;
     }
 
     .important-note {
       margin-top: 40px;
+
       padding: 28px;
-      border-left: 5px solid #ef2ca9;
+
+      border-left:
+        5px solid #ef2ca9;
+
       border-radius: 20px;
-      background: rgba(238, 44, 169, 0.07);
+
+      background:
+        rgba(238, 44, 169, 0.07);
+
       color: #c5c5ce;
+
       font-size: 1.05rem;
     }
 
-    /* =========================================
+    .important-note strong {
+      color: #ffffff;
+    }
+
+
+    /* =====================================================
        PROCESS
-    ========================================= */
+    ===================================================== */
 
     .process-grid {
       margin-top: 55px;
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 18px;
     }
 
     .process-card {
       padding: 28px;
+
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
     .process-number {
       font-size: 2.5rem;
+
       font-weight: 900;
+
       color: #d044df;
+
       margin-bottom: 15px;
     }
 
@@ -696,12 +1013,53 @@
 
     .process-card p {
       color: #aeb0bd;
+
       font-size: 0.95rem;
     }
 
-    /* =========================================
-       PROJECT FORM
-    ========================================= */
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+
+    .faq {
+      max-width: 900px;
+
+      margin: 50px auto 0;
+    }
+
+    details {
+      padding: 22px;
+
+      margin-bottom: 14px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(255, 255, 255, 0.035);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    summary {
+      cursor: pointer;
+
+      font-weight: 800;
+
+      list-style-position: inside;
+    }
+
+    details p {
+      margin-top: 15px;
+
+      color: #aeb0bd;
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
 
     .contact-section {
       padding-bottom: 110px;
@@ -709,51 +1067,72 @@
 
     .contact-wrapper {
       margin-top: 50px;
+
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+
+      grid-template-columns:
+        0.8fr 1.2fr;
+
       gap: 25px;
     }
 
     .contact-info,
     .contact-form {
       border-radius: 28px;
+
       padding: 38px;
+
       background: #12121d;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
     }
 
     .contact-info h3 {
       font-size: 2rem;
+
       margin-bottom: 20px;
     }
 
     .contact-info p {
       color: #afb0bd;
+
       margin-bottom: 30px;
     }
 
     .contact-item {
       padding: 18px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
     .contact-label {
       display: block;
+
       color: #7d7f91;
+
       font-size: 0.8rem;
+
       margin-bottom: 5px;
+
       text-transform: uppercase;
+
       letter-spacing: 1px;
     }
 
     .contact-value {
       font-weight: 800;
+
       word-break: break-word;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 18px;
     }
 
@@ -767,9 +1146,13 @@
 
     label {
       display: block;
+
       font-size: 0.9rem;
+
       margin-bottom: 8px;
+
       color: #d4d4da;
+
       font-weight: 700;
     }
 
@@ -777,16 +1160,38 @@
     select,
     textarea {
       width: 100%;
-      color: white;
+
+      color: #ffffff;
+
       background: #0b0b14;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
       border-radius: 14px;
+
       padding: 15px;
+
       outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #656776;
+    }
+
+    select option {
+      background: #0b0b14;
+      color: #ffffff;
     }
 
     textarea {
       min-height: 150px;
+
       resize: vertical;
     }
 
@@ -794,238 +1199,94 @@
     select:focus,
     textarea:focus {
       border-color: #bd43e7;
+
       box-shadow:
         0 0 0 3px rgba(189, 67, 231, 0.12);
     }
 
-    /* =========================================
-       FAQ
-    ========================================= */
+    .submit-button {
+      width: 100%;
 
-    .faq {
-      max-width: 900px;
-      margin: 50px auto 0;
+      border: none;
+
+      color: #ffffff;
+
+      padding: 17px;
+
+      border-radius: 16px;
+
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ef2ca9,
+          #a23be8,
+          #5b5cff
+        );
+
+      transition: 0.25s;
     }
 
-    details {
-      padding: 22px;
-      margin-bottom: 14px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .submit-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 15px 40px rgba(181, 57, 224, 0.3);
     }
 
-    summary {
-      cursor: pointer;
-      font-weight: 800;
-    }
+    .form-message {
+      display: none;
 
-    details p {
       margin-top: 15px;
-      color: #aeb0bd;
+
+      padding: 14px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(92, 227, 164, 0.08);
+
+      border:
+        1px solid rgba(92, 227, 164, 0.2);
+
+      color: #72e8bd;
+
+      font-weight: 700;
     }
 
-    /* =========================================
+    .form-message.show {
+      display: block;
+    }
+
+
+    /* =====================================================
        FOOTER
-    ========================================= */
+    ===================================================== */
 
     footer {
       padding: 40px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
       color: #858796;
     }
 
     .footer-content {
       display: flex;
+
       justify-content: space-between;
+
+      align-items: center;
+
       gap: 20px;
+
       flex-wrap: wrap;
     }
 
-    /* =========================================
-       MOBILE
-    ========================================= */
+    .footer-brand {
+      color: #ffffff;
 
-    @media (max-width: 900px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu-button {
-        display: block;
-      }
-
-      .hero-grid,
-      .contact-wrapper {
-        grid-template-columns: 1fr;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .app-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 90px 0 70px;
-      }
-
-      .hero-card {
-        max-width: 600px;
-      }
-
-    }
-
-    @media (max-width: 600px) {
-
-      .container {
-        width: min(100% - 28px, 1180px);
-      }
-
-      section {
-        padding: 75px 0;
-      }
-
-      .navbar {
-        min-height: 72px;
-      }
-
-      .nav-button {
-        padding: 13px 17px;
-        font-size: 0.85rem;
-      }
-
-      h1 {
-        font-size: 3.5rem;
-      }
-
-      .section-title {
-        font-size: 3rem;
-      }
-
-      .hero-text {
-        font-size: 1rem;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pricing-card,
-      .app-card,
-      .contact-info,
-      .contact-form {
-        padding: 27px;
-      }
-
-      .price {
-        font-size: 2.5rem;
-      }
-
-      .app-price {
-        font-size: 2.35rem;
-      }
-
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <div class="background-grid"></div>
-  <div class="background-glow"></div>
-
-
-  <!-- =====================================
-       HEADER
-  ====================================== -->
-
-  <header>
-    <div class="container navbar">
-
-      <a href="#" class="logo">
-        SS DEV <span>STUDIO</span>
-      </a>
-
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#website-pricing">Website Pricing</a>
-        <a href="#app-pricing">App Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a href="#contact" class="nav-button">
-        Start a project ↗
-      </a>
-
-    </div>
-  </header>
-
-
-  <main>
-
-
-    <!-- =====================================
-         HERO
-    ====================================== -->
-
-    <section class="hero">
-
-      <div class="container hero-grid">
-
-        <div>
-
-          <div class="eyebrow">
-            Available for new projects
-          </div>
-
-          <h1>
-            We build digital products people
-            <span class="gradient-text">remember.</span>
-          </h1>
-
-          <p class="hero-text">
-            SS DEV STUDIO creates polished Android apps,
-            high-converting websites and reliable software
-            experiences — from the first idea to launch and beyond.
-          </p>
-
-          <div class="hero-buttons">
-
-            <a href="#contact" class="primary-button">
-              Request a project ↗
-            </a>
-
-            <a href="#services" class="secondary-button">
-              Explore services
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="hero-card">
-
-          <div class="window">
-
-            <div class="window-header">
-              <div class="dot"></div>
-            
+      font-weight: 900;
+   
